@@ -9,7 +9,7 @@
 int dc_kanga_rotate_index()
 {
     int index_current;  // Current palette in use.
-    int index_max;      // Number of palettes entity has loaded.
+    int index_count;    // Number of palettes entity has loaded.
     void target;        // Target entity.
 
     // Get target entity.
@@ -20,20 +20,20 @@ int dc_kanga_rotate_index()
     if(!getentityproperty(target, "exists")) return index_current;
 
     // Get number of maps loaded and the entity's current map index.
-    index_count     = getentityproperty(ent, "mapcount");
-    index_current   = getentityproperty(ent, "maps", "current");
+    index_count     = getentityproperty(target, "mapcount");
+    index_current   = getentityproperty(target, "maps", "current");
 
     // Increment to next index.
     index_current++;
 
     // If we've passed up the last index, reset to 0.
-    if(index_current > index_max)
+    if(index_current > index_count)
     {
         index_current = 0;
     }
 
     // Apply the map index.
-    changeentityproperty(ent, "map", index_current);
+    changeentityproperty(target, "map", index_current);
 
     return index_current;
 }
