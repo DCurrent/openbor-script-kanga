@@ -33,7 +33,7 @@ int dc_kanga_random_index()
     setlocalvar(DC_D20_KEY_UPPER, map_count);
 
     // Generate random map value.
-    result = dc_d20_int();
+    result = dc_d20_random_int();
 
     // Get variable type of hidden ranges. This is so we
     // can verify there are hidden ranges. You can't just
@@ -49,7 +49,7 @@ int dc_kanga_random_index()
         // generate a new value.
         while(result >= map_hidden_lower && result <= map_hidden_upper)
         {
-           result = dc_d20_int();
+           result = dc_d20_random_int();
         }
     }
 
