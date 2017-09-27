@@ -1,11 +1,11 @@
 // Configuration.
-#include data/scripts/dc_kanga/config.h
+#include "data/scripts/dc_kanga/config.h"
 
 // Dependencies
 //-- Random number generator
-#include data/scripts/dc_d20/main.c
+#include "data/scripts/dc_d20/main.c"
 
 // Methods.
-#import data/scripts/dc_kanga/random_index.c
+#import "data/scripts/dc_kanga/random_index.c"
 
 
