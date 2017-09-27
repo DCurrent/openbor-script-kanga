@@ -20,7 +20,7 @@ int dc_kanga_random_index()
     target = getlocalvar(DC_KANGA_KEY_TARGET);
 
     // If the target entity is not valid, then exit.
-    if(typeof(target) != VT_PTR) return result;
+    if(typeof(target) != openborconstant("VT_PTR")) return result;
     if(!getentityproperty(target, "exists")) return result;
 
     // Get map attributes.
@@ -43,7 +43,7 @@ int dc_kanga_random_index()
     map_hidden_upper_vt = typeof(map_hidden_upper);
 
     // Do we have valid hidden map values?
-    if(map_hidden_lower_vt != VT_EMPTY && map_hidden_lower_vt != VT_EMPTY)
+    if(map_hidden_lower_vt != openborconstant("VT_EMPTY") && map_hidden_lower_vt != openborconstant("VT_EMPTY"))
     {
         // If the random map value falls within hidden range,
         // generate a new value.
