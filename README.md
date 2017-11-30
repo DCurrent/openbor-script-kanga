@@ -43,7 +43,7 @@ self = getlocalvar("self");
 // Set calling entity as target.
 setlocalvar(DC_KANGA_KEY_TARGET, self);
 
-// Apply a random choice from the entity 
+// Increment to next entry in the entity 
 // model's available map indexes.
 dc_kanga_rotate_index();
 ```
