@@ -29,9 +29,9 @@ int dc_kanga_random_index()
     map_hidden_upper    = getentityproperty(target, "hmapu");
 
     // Set range for random number generator.
-    setlocalvar(DC_D20_KEY_LOWER, 0);
-    setlocalvar(DC_D20_KEY_UPPER, map_count);
-
+	dc_d20_set_range_lower(0);
+	dc_d20_set_range_upper(map_count);
+	
     // Generate random map value.
     result = dc_d20_random_int();
 
