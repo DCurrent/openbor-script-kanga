@@ -55,6 +55,7 @@
 #define DC_KANGA_MIN_Z_ADJUST				1.1								// Adjustment from actual min Z position before calculations.
 #define DC_KANGA_MIN_Z_SIZE					0.9								// Scale ratio when target is at MIN_Z position.
 
+
 #define DC_KANGA_AUTOSCALE_SCALE_X			DC_KANGA_DEFAULT_SCALE			// Starting scale of target.
 #define DC_KANGA_AUTOSCALE_SCALE_Y			DC_KANGA_DEFAULT_SCALE			// "
 
