@@ -19,6 +19,8 @@
 #define DC_KANGA_VAR_KEY_DEBUG_TINT_MODE	"dckan_6"
 #define DC_KANGA_VAR_KEY_TIME_INITIAL		"dckan_7"
 
+
+
 // Defaults.
 #define DC_KANGA_DEFAULT_INSTANCE			0
 
