@@ -10,25 +10,6 @@
 #define DC_KANGA_FLAG_OFF					0
 #define DC_KANGA_FLAG_ON					1
 
-#define DC_KANGA_BASE_KEY_ID				"dckan"
-#define DC_KANGA_VAR_KEY_INSTANCE			DC_KANGA_BASE_KEY_ID + 0
-#define DC_KANGA_KEY_TARGET					DC_KANGA_BASE_KEY_ID + 1
-#define DC_KANGA_VAR_KEY_DEBUG_FLAG			DC_KANGA_BASE_KEY_ID + 2
-#define DC_KANGA_VAR_KEY_DEBUG_RGB_BLUE		DC_KANGA_BASE_KEY_ID + 3
-#define DC_KANGA_VAR_KEY_DEBUG_RGB_GREEN	DC_KANGA_BASE_KEY_ID + 4
-#define DC_KANGA_VAR_KEY_DEBUG_RGB_RED		DC_KANGA_BASE_KEY_ID + 5
-#define DC_KANGA_VAR_KEY_DEBUG_TINT_MODE	DC_KANGA_BASE_KEY_ID + 6
-#define DC_KANGA_VAR_KEY_TIME_INITIAL		DC_KANGA_BASE_KEY_ID + 7
-
-// Defaults.
-#define DC_KANGA_DEFAULT_INSTANCE			0
-#define DC_KANGA_DEFAULT_DEBUG_FLAG			0
-#define DC_KANGA_DEFAULT_DEBUG_RGB_BLUE		0
-#define DC_KANGA_DEFAULT_DEBUG_RGB_GREEN	0
-#define DC_KANGA_DEFAULT_DEBUG_RGB_RED		0
-#define DC_KANGA_DEFAULT_DEBUG_TINT_MODE	0
-#define DC_KANGA_DEFAULT_TIME_INITIAL		0
-
 // Transpareny mode presets.
 #define DC_KANGA_TRANSPARENCY_OFF			0
 #define DC_KANGA_TRANSPARENCY_ALPHA			1
@@ -65,10 +46,30 @@
 #define DC_KANGA_AUTOSCALE_SCALE_X			DC_KANGA_DEFAULT_SCALE			// Starting scale of target.
 #define DC_KANGA_AUTOSCALE_SCALE_Y			DC_KANGA_DEFAULT_SCALE			// "
 
+// Defaults.
+#define DC_KANGA_DEFAULT_INSTANCE			0
+#define DC_KANGA_DEFAULT_DEBUG_FLAG			0
+#define DC_KANGA_DEFAULT_DEBUG_RGB_BLUE		0
+#define DC_KANGA_DEFAULT_DEBUG_RGB_GREEN	0
+#define DC_KANGA_DEFAULT_DEBUG_RGB_RED		0
+#define DC_KANGA_DEFAULT_DEBUG_TINT_MODE	0
+#define DC_KANGA_DEFAULT_TIME_INITIAL		0
+
 // Function macros.
 #define dc_kanga_set_enabled(entity, value)		changedrawmethod(entity, "enabled", value)
 #define dc_kanga_set_tint_mode(entity, value)	changedrawmethod(entity, "tintmode", value)
 #define dc_kanga_set_map(entity, value)			changedrawmethod(entity, "remap", value)
+
+// Variable keys.
+#define DC_KANGA_BASE_KEY_ID				"dckan"
+#define DC_KANGA_VAR_KEY_INSTANCE			DC_KANGA_BASE_KEY_ID + 0
+#define DC_KANGA_KEY_TARGET					DC_KANGA_BASE_KEY_ID + 1
+#define DC_KANGA_VAR_KEY_DEBUG_FLAG			DC_KANGA_BASE_KEY_ID + 2
+#define DC_KANGA_VAR_KEY_DEBUG_RGB_BLUE		DC_KANGA_BASE_KEY_ID + 3
+#define DC_KANGA_VAR_KEY_DEBUG_RGB_GREEN	DC_KANGA_BASE_KEY_ID + 4
+#define DC_KANGA_VAR_KEY_DEBUG_RGB_RED		DC_KANGA_BASE_KEY_ID + 5
+#define DC_KANGA_VAR_KEY_DEBUG_TINT_MODE	DC_KANGA_BASE_KEY_ID + 6
+#define DC_KANGA_VAR_KEY_TIME_INITIAL		DC_KANGA_BASE_KEY_ID + 7
 
 #endif // !DC_KANGA_CONFIG
 
