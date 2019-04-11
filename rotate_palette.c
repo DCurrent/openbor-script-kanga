@@ -1,27 +1,25 @@
 // Configuration.
 #include "data/scripts/dc_kanga/config.h"
 
+#import "data/scripts/dc_kanga/entity.c"
+
 // Caskey, Damon V.
 // 2016-10-27
 //
 // Apply target entity's next map index in a continuous loop from
 // first to last.
-int dc_kanga_rotate_index()
+int dc_kanga_rotate_palette()
 {
     int index_current;  // Current palette in use.
     int index_count;    // Number of palettes entity has loaded.
-    void target;        // Target entity.
+    void ent;			// Target entity.
 
     // Get target entity.
-    target = getlocalvar(DC_KANGA_KEY_TARGET);
-
-    // If the target entity is not valid, then exit.
-    if(typeof(target) != openborconstant("VT_PTR")) return index_current;
-    if(!getentityproperty(target, "exists")) return index_current;
+    ent = dc_kanga_get_target();
 
     // Get number of maps loaded and the entity's current map index.
-    index_count     = getentityproperty(target, "mapcount");
-    index_current   = getentityproperty(target, "maps", "current");
+    index_count     = getentityproperty(ent, "mapcount");
+    index_current   = getentityproperty(ent, "maps", "current");
 
     // Increment to next index.
     index_current++;
@@ -33,7 +31,7 @@ int dc_kanga_rotate_index()
     }
 
     // Apply the map index.
-    changeentityproperty(target, "map", index_current);
+    changeentityproperty(ent, "map", index_current);
 
     return index_current;
 }

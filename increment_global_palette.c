@@ -5,7 +5,7 @@
 // 2016-10-27
 //
 // Increments to next available global palette.
-int dc_kanga_increment_global_index()
+int dc_kanga_increment_global_palette()
 {
     int index_current;    // Index of current global palette in use.
     int index_count;      // Number of global palettes available.
