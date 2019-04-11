@@ -1,12 +1,14 @@
 // Configuration.
 #include "data/scripts/dc_kanga/config.h"
 
+#import "data/scripts/dc_kanga/entity.c"
+
 // Caskey, Damon V.
 // 2016-09-27
 //
 // Apply random map index to target entity, avoiding
 // hidden map range. Returns map index applied.
-int dc_kanga_random_index()
+int dc_kanga_random_palette()
 {
     int map_count;              // Number of maps the entity has.
     int map_hidden_lower;       // Hidden maps range (lower boundary).
@@ -14,19 +16,15 @@ int dc_kanga_random_index()
     int map_hidden_upper;       // Hidden maps range (upper boundary).
     int map_hidden_upper_vt;    // Hidden maps range, variable type (upper boundary).
     int result;                 // Map to apply and return as final result.
-    void target;                // Target entity.
+    void ent;					// Target entity.
 
     // Get target entity.
-    target = getlocalvar(DC_KANGA_KEY_TARGET);
-
-    // If the target entity is not valid, then exit.
-    if(typeof(target) != openborconstant("VT_PTR")) return result;
-    if(!getentityproperty(target, "exists")) return result;
+    ent = dc_kanga_get_target();
 
     // Get map attributes.
-    map_count           = getentityproperty(target, "mapcount");
-    map_hidden_lower    = getentityproperty(target, "hmapl");
-    map_hidden_upper    = getentityproperty(target, "hmapu");
+    map_count           = getentityproperty(ent, "mapcount");
+    map_hidden_lower    = getentityproperty(ent, "hmapl");
+    map_hidden_upper    = getentityproperty(ent, "hmapu");
 
     // Set range for random number generator.
 	dc_d20_set_range_lower(0);
@@ -54,7 +52,7 @@ int dc_kanga_random_index()
     }
 
     // Apply the map value to target entity.
-    changeentityproperty(target, "map", result);
+    changeentityproperty(ent, "map", result);
 
     // Return result.
     return result;
