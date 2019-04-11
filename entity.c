@@ -1,7 +1,5 @@
 #include "data/scripts/dc_kanga/config.h"
 
-#import "data/scripts/dc_kanga/instance.c"
-
 // Base entity functions will act on.
 
 // Get

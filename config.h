@@ -2,10 +2,14 @@
 #define DC_KANGA_CONFIG 1
 
 // Dependencies
-//-- Random number generator
 #include "data/scripts/dc_d20/main.c"
+#include "data/scripts/dc_instance/main.c"
 #include "data/scripts/dc_math/main.c"
 #include "data/scripts/dc_spinner/main.c"
+
+// Name of library. Used mainly as a base for variable IDs. Must
+// be unique vs all other libraries. Try to keep it short.
+#define DC_KANGA_BASE_ID			"dckan"
 
 #define DC_KANGA_FLAG_OFF					0
 #define DC_KANGA_FLAG_ON					1
@@ -63,7 +67,6 @@
 #define dc_kanga_set_map(entity, value)			changedrawmethod(entity, "remap", value)
 
 // Variable keys.
-#define DC_KANGA_BASE_ID			"dckan"
 #define DC_KANGA_VAR_KEY_INSTANCE			DC_KANGA_BASE_ID + 0
 #define DC_KANGA_VAR_KEY_TARGET				DC_KANGA_BASE_ID + 1	
 #define DC_KANGA_VAR_KEY_DEBUG_FLAG			DC_KANGA_BASE_ID + 2
@@ -73,6 +76,16 @@
 #define DC_KANGA_VAR_KEY_DEBUG_TINT_MODE	DC_KANGA_BASE_ID + 6
 #define DC_KANGA_VAR_KEY_TIME_INITIAL		DC_KANGA_BASE_ID + 7
 #define DC_KANGA_VAR_KEY_THE_END			8
+
+// Instance control. 
+#define dc_kanga_get_instance()			dc_instance_get(DC_KANGA_VAR_KEY_INSTANCE)
+#define dc_kanga_set_instance(value)	dc_instance_set(DC_KANGA_VAR_KEY_INSTANCE, value)
+#define dc_kanga_reset_instance()		dc_instance_reset(DC_KANGA_BASE_ID, DC_KANGA_VAR_KEY_INSTANCE, DC_KANGA_VAR_KEY_THE_END)
+#define dc_kanga_free_instance()		dc_instance_free(DC_KANGA_BASE_ID, DC_KANGA_VAR_KEY_INSTANCE, DC_KANGA_VAR_KEY_THE_END)
+#define dc_kanga_dump_instance()		dc_instance_dump(DC_KANGA_BASE_ID, DC_KANGA_VAR_KEY_INSTANCE, DC_KANGA_VAR_KEY_THE_END)
+#define dc_kanga_export_instance()		dc_instance_export(DC_KANGA_BASE_ID, DC_KANGA_VAR_KEY_INSTANCE, DC_KANGA_VAR_KEY_THE_END)
+#define dc_kanga_import_instance()		dc_instance_import(DC_KANGA_BASE_ID, DC_KANGA_VAR_KEY_INSTANCE, DC_KANGA_VAR_KEY_THE_END)
+#define dc_kanga_free_export()			dc_instance_free_export(DC_KANGA_BASE_ID, DC_KANGA_VAR_KEY_INSTANCE, DC_KANGA_VAR_KEY_THE_END)
 
 #endif // !DC_KANGA_CONFIG
 
