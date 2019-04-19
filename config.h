@@ -3,7 +3,6 @@
 
 // Dependencies
 #include "data/scripts/dc_d20/main.c"
-#include "data/scripts/dc_instance/main.c"
 #include "data/scripts/dc_math/main.c"
 #include "data/scripts/dc_spinner/main.c"
 
@@ -52,6 +51,7 @@
 #define DC_KANGA_AUTOSCALE_SCALE_Y			DC_KANGA_DEFAULT_SCALE			// "
 
 // Defaults.
+#define DC_KANGA_DEFAULT_INSTANCE			0
 #define DC_KANGA_DEFAULT_TARGET				getlocalvar("self")
 #define DC_KANGA_DEFAULT_DEBUG_FLAG			0
 #define DC_KANGA_DEFAULT_DEBUG_RGB_BLUE		0
@@ -70,21 +70,11 @@
 #define DC_KANGA_MEMBER_TARGET				DC_KANGA_BASE_ID + 1	
 #define DC_KANGA_MEMBER_DEBUG_FLAG			DC_KANGA_BASE_ID + 2
 #define DC_KANGA_MEMBER_DEBUG_RGB_BLUE		DC_KANGA_BASE_ID + 3
-#define DC_KANGA_MEMBER_DEBUG_RGB_GREEN	DC_KANGA_BASE_ID + 4
+#define DC_KANGA_MEMBER_DEBUG_RGB_GREEN		DC_KANGA_BASE_ID + 4
 #define DC_KANGA_MEMBER_DEBUG_RGB_RED		DC_KANGA_BASE_ID + 5
-#define DC_KANGA_MEMBER_DEBUG_TINT_MODE	DC_KANGA_BASE_ID + 6
+#define DC_KANGA_MEMBER_DEBUG_TINT_MODE		DC_KANGA_BASE_ID + 6
 #define DC_KANGA_MEMBER_TIME_INITIAL		DC_KANGA_BASE_ID + 7
-#define DC_KANGA_MEMBER_THE_END			8
-
-// Instance control. 
-#define dc_kanga_get_instance()			dc_instance_get(DC_KANGA_MEMBER_INSTANCE)
-#define dc_kanga_set_instance(value)	dc_instance_set(DC_KANGA_MEMBER_INSTANCE, value)
-#define dc_kanga_reset_instance()		dc_instance_reset(DC_KANGA_BASE_ID, DC_KANGA_MEMBER_INSTANCE, DC_KANGA_MEMBER_THE_END)
-#define dc_kanga_free_instance()		dc_instance_free(DC_KANGA_BASE_ID, DC_KANGA_MEMBER_INSTANCE, DC_KANGA_MEMBER_THE_END)
-#define dc_kanga_dump_instance()		dc_instance_dump(DC_KANGA_BASE_ID, DC_KANGA_MEMBER_INSTANCE, DC_KANGA_MEMBER_THE_END)
-#define dc_kanga_export_instance()		dc_instance_export(DC_KANGA_BASE_ID, DC_KANGA_MEMBER_INSTANCE, DC_KANGA_MEMBER_THE_END)
-#define dc_kanga_import_instance()		dc_instance_import(DC_KANGA_BASE_ID, DC_KANGA_MEMBER_INSTANCE, DC_KANGA_MEMBER_THE_END)
-#define dc_kanga_free_export()			dc_instance_free_export(DC_KANGA_BASE_ID, DC_KANGA_MEMBER_INSTANCE, DC_KANGA_MEMBER_THE_END)
+#define DC_KANGA_MEMBER_THE_END				8
 
 #endif // !DC_KANGA_CONFIG
 

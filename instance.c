@@ -3,7 +3,7 @@
 // Which instance is in use?
 int dc_kanga_get_instance()
 {
-	void result = getlocalvar(DC_KANGA_VAR_KEY_INSTANCE);
+	void result = getlocalvar(DC_KANGA_MEMBER_INSTANCE);
 
 	if (!result)
 	{
@@ -15,7 +15,7 @@ int dc_kanga_get_instance()
 
 void dc_kanga_set_instance(int value)
 {
-	setlocalvar(DC_KANGA_VAR_KEY_INSTANCE, value);
+	setlocalvar(DC_KANGA_MEMBER_INSTANCE, value);
 }
 
 // Caskey, Damon V.
@@ -57,7 +57,7 @@ void dc_kanga_free_instance()
 	instance = dc_kanga_get_instance();
 
 	// Loop from 0 to end count of library variables.
-	for (i = 0; i < DC_KANGA_VAR_KEY_THE_END; i++)
+	for (i = 0; i < DC_KANGA_MEMBER_THE_END; i++)
 	{
 		// Concatenate the variable ID.
 		id = instance + DC_KANGA_BASE_ID + i;
@@ -85,7 +85,7 @@ void dc_kanga_dump_instance()
 	log("\n\t " + "Instance: " + instance);
 
 	// Loop from 0 to end count of instance variables.
-	for (i = 0; i < DC_KANGA_VAR_KEY_THE_END; i++)
+	for (i = 0; i < DC_KANGA_MEMBER_THE_END; i++)
 	{
 		// Concatenate the variable ID.
 		id = instance + DC_KANGA_BASE_ID + i;
@@ -118,7 +118,7 @@ void dc_kanga_export_instance()
 	instance = dc_kanga_get_instance();
 
 	// Loop from 0 to end count of instance variables.
-	for (i = 0; i < DC_KANGA_VAR_KEY_THE_END; i++)
+	for (i = 0; i < DC_KANGA_MEMBER_THE_END; i++)
 	{
 		// Concatenate the variable ID.
 		id = instance + DC_KANGA_BASE_ID + i;
@@ -147,7 +147,7 @@ void dc_kanga_import_instance()
 	instance = dc_kanga_get_instance();
 
 	// Loop from 0 to end count of instance variables.
-	for (i = 0; i < DC_KANGA_VAR_KEY_THE_END; i++)
+	for (i = 0; i < DC_KANGA_MEMBER_THE_END; i++)
 	{
 		// Concatenate the variable ID.
 		id = instance + DC_KANGA_BASE_ID + i;
@@ -174,7 +174,7 @@ void dc_kanga_free_export()
 	instance = dc_kanga_get_instance();
 
 	// Loop from 0 to end count of library variables.
-	for (i = 0; i < DC_KANGA_VAR_KEY_THE_END; i++)
+	for (i = 0; i < DC_KANGA_MEMBER_THE_END; i++)
 	{
 		// Concatenate the variable ID.
 		id = instance + DC_KANGA_BASE_ID + i;
