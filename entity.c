@@ -9,7 +9,7 @@ void dc_kanga_get_target()
 	void result;
 
 	// Get id key.
-	id = dc_kanga_get_instance() + DC_KANGA_VAR_KEY_TARGET;
+	id = dc_kanga_get_instance() + DC_KANGA_MEMBER_TARGET;
 
 	result = getlocalvar(id);
 
@@ -27,7 +27,7 @@ void dc_kanga_set_target(void value)
 	char id;
 
 	// Get id key.
-	id = dc_kanga_get_instance() + DC_KANGA_VAR_KEY_TARGET;
+	id = dc_kanga_get_instance() + DC_KANGA_MEMBER_TARGET;
 
 	// If the value is same as default, then use
 	// make sure variable is deleted instead. We fall

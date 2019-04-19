@@ -56,7 +56,7 @@ void dc_kanga_auto_tint(void ent)
 	// current time and the time an effect was first
 	// applied.
 	time_current += openborvariant("elapsed_time");
-	time_initial += getlocalvar(ent + DC_KANGA_VAR_KEY_TIME_INITIAL);
+	time_initial += getlocalvar(ent + DC_KANGA_MEMBER_TIME_INITIAL);
 
 	// If entity is frozen, apply a freeze tint.
 	if (getentityproperty(ent, "aiflag", "frozen") == DC_KANGA_FLAG_ON)
@@ -70,7 +70,7 @@ void dc_kanga_auto_tint(void ent)
 		if (!time_initial)
 		{
 			time_initial = time_effect - time_current;
-			setlocalvar(ent + DC_KANGA_VAR_KEY_TIME_INITIAL, time_initial);
+			setlocalvar(ent + DC_KANGA_MEMBER_TIME_INITIAL, time_initial);
 		}
 
 		// How much time is left before freeze effect is set to expire?
@@ -152,10 +152,10 @@ void dc_kanga_auto_tint(void ent)
 			// Current value for spinner is current RGB. Upper
 			// is the KO value. We don't care about lower value.
 			dc_spinner_set_value(rgb_b);
-			dc_spinner_set_range_upper(DC_KANGA_KO_RGB_R);
+			dc_spinner_set_range_max(DC_KANGA_KO_RGB_R);
 
 			// Cap the value at upper.
-			dc_spinner_set_range_bound_upper(DC_SPINNER_RANGE_BOUND_CAP);
+			dc_spinner_set_range_bound_max(DC_SPINNER_RANGE_BOUND_CAP);
 
 			// Set steps and build increment amount.
 			dc_spinner_set_steps(DC_KANGA_KO_STEPS);
@@ -184,7 +184,7 @@ void dc_kanga_auto_tint(void ent)
 	dc_kanga_set_tint_color(ent, 0, 0, 0);
 	dc_kanga_set_tint_mode(ent, 0);
 
-	setlocalvar(ent + DC_KANGA_VAR_KEY_TIME_INITIAL, NULL());
+	setlocalvar(ent + DC_KANGA_MEMBER_TIME_INITIAL, NULL());
 }
 
 
@@ -204,17 +204,17 @@ void dc_effect_tint_debug_control()
 	key_press = getplayerproperty(player_index, "newkeys");
 
 	// Get stored debug flag.
-	debug = getlocalvar(DC_KANGA_VAR_KEY_DEBUG_FLAG);
+	debug = getlocalvar(DC_KANGA_MEMBER_DEBUG_FLAG);
 
 	// if holding escape, then use Up/Down presses
 	// to toggle debugging mode.
 	if (key_hold & openborconstant("FLAG_ESC"))
 	{
-		debug = getlocalvar(DC_KANGA_VAR_KEY_DEBUG_FLAG);
+		debug = getlocalvar(DC_KANGA_MEMBER_DEBUG_FLAG);
 
 		debug = dc_effect_tint_spinner(debug, DC_KANGA_FLAG_OFF, DC_KANGA_FLAG_ON);
 
-		setlocalvar(DC_KANGA_VAR_KEY_DEBUG_FLAG, debug);
+		setlocalvar(DC_KANGA_MEMBER_DEBUG_FLAG, debug);
 	}
 
 	// If debugging mode is on, then we're going to use Bitwise ANDs to
@@ -228,52 +228,52 @@ void dc_effect_tint_debug_control()
 		if (key_hold & openborconstant("FLAG_ATTACK"))
 		{
 			// Get orginal value.
-			mode = getlocalvar(DC_KANGA_VAR_KEY_DEBUG_TINT_MODE);
+			mode = getlocalvar(DC_KANGA_MEMBER_DEBUG_TINT_MODE);
 
 			// Adjust value based on key press and limits.
 			mode = dc_effect_tint_spinner(mode, 0, 6);
 
 			// Save value.
-			setlocalvar(DC_KANGA_VAR_KEY_DEBUG_TINT_MODE, mode);
+			setlocalvar(DC_KANGA_MEMBER_DEBUG_TINT_MODE, mode);
 		}
 
 		// RGB Red value.
 		if (key_hold & openborconstant("FLAG_ATTACK2"))
 		{
 			// Get orginal value.
-			value = getlocalvar(DC_KANGA_VAR_KEY_DEBUG_RGB_RED);
+			value = getlocalvar(DC_KANGA_MEMBER_DEBUG_RGB_RED);
 
 			// Adjust value based on key press and limits.
 			value = dc_effect_tint_spinner(value, 0, 255);
 
 			// Save value.
-			setlocalvar(DC_KANGA_VAR_KEY_DEBUG_RGB_RED, value);
+			setlocalvar(DC_KANGA_MEMBER_DEBUG_RGB_RED, value);
 		}
 
 		// RGB Green value.
 		if (key_hold & openborconstant("FLAG_ATTACK3"))
 		{
 			// Get orginal value.
-			value = getlocalvar(DC_KANGA_VAR_KEY_DEBUG_RGB_GREEN);
+			value = getlocalvar(DC_KANGA_MEMBER_DEBUG_RGB_GREEN);
 
 			// Adjust value based on key press and limits.
 			value = dc_effect_tint_spinner(value, 0, 255);
 
 			// Save value.
-			setlocalvar(DC_KANGA_VAR_KEY_DEBUG_RGB_GREEN, value);
+			setlocalvar(DC_KANGA_MEMBER_DEBUG_RGB_GREEN, value);
 		}
 
 		// RGB Blue Value.
 		if (key_hold &  openborconstant("FLAG_ATTACK4"))
 		{
 			// Get orginal value.
-			value = getlocalvar(DC_KANGA_VAR_KEY_DEBUG_RGB_BLUE);
+			value = getlocalvar(DC_KANGA_MEMBER_DEBUG_RGB_BLUE);
 
 			// Adjust value based on key press and limits.
 			value = dc_effect_tint_spinner(value, 0, 255);
 
 			// Save value.
-			setlocalvar(DC_KANGA_VAR_KEY_DEBUG_RGB_BLUE, value);
+			setlocalvar(DC_KANGA_MEMBER_DEBUG_RGB_BLUE, value);
 		}
 	}
 }
